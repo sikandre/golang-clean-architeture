@@ -1,5 +1,6 @@
 package datastore
 
 type Database interface {
-	FindAll() []interface{}
+	FindAll(out interface{}) error
+	Close() error
 }

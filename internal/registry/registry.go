@@ -2,25 +2,17 @@ package registry
 
 import (
 	"cleanArch/pkg/datastore"
+	"cleanArch/pkg/datastore/gorm"
 	"cleanArch/pkg/server"
-	"github.com/jinzhu/gorm"
 )
 
 type registry struct {
-	db *gorm.DB
+	db datastore.Database
 }
 
 func NewRegistry() {
-	db := datastore.NewDB()
+	db := gorm.NewDB()
 
-	// Migrate the schema
-	// Create
-	//db.Create(&model.User{
-	//	Name:      "Bob",
-	//	Age:       "10",
-	//	CreatedAt: time.Time{},
-	//	UpdatedAt: time.Time{},
-	//})
 	defer db.Close()
 
 	r := registry{db: db}

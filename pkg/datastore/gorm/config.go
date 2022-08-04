@@ -1,16 +1,15 @@
-package datastore
+package gorm
 
 import (
-	"log"
-
 	"cleanArch/config"
 	"cleanArch/internal/domain/model"
+	"cleanArch/pkg/datastore"
 	"github.com/go-sql-driver/mysql"
-
 	"github.com/jinzhu/gorm"
+	"log"
 )
 
-func NewDB() *gorm.DB {
+func NewDB() datastore.Database {
 	DBMS := "mysql"
 
 	mySqlConfig := &mysql.Config{
@@ -40,5 +39,5 @@ func NewDB() *gorm.DB {
 	//})
 	db.LogMode(true)
 
-	return db
+	return &gormDB{DB: db}
 }
