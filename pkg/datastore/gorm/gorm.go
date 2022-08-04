@@ -1,6 +1,7 @@
 package gorm
 
 import (
+	"cleanArch/internal/domain/model"
 	"github.com/jinzhu/gorm"
 )
 
@@ -8,10 +9,12 @@ type gormDB struct {
 	*gorm.DB
 }
 
-func (g *gormDB) FindAll(out interface{}) error {
-	g.DB.Find(out)
+func (g *gormDB) FindAll() ([]*model.User, error) {
+	var out []*model.User
 
-	return g.Error
+	g.DB.Find(&out)
+
+	return out, g.Error
 }
 
 func (g *gormDB) Close() error {

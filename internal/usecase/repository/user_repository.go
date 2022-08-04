@@ -18,7 +18,7 @@ func NewUserRepository(db datastore.Database) UserRepository {
 }
 
 func (ur *userRepository) FindAll(u []*model.User) ([]*model.User, error) {
-	err := ur.db.FindAll(&u)
+	u, err := ur.db.FindAll()
 
 	if err != nil {
 		return nil, err

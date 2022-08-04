@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/go-sql-driver/mysql v1.4.1
+	github.com/hashicorp/go-memdb v1.3.3
 	github.com/jinzhu/gorm v1.9.10
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/spf13/viper v1.4.0
@@ -14,6 +15,8 @@ require (
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/fsnotify/fsnotify v1.4.7 // indirect
+	github.com/hashicorp/go-immutable-radix v1.3.0 // indirect
+	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/labstack/gommon v0.3.1 // indirect

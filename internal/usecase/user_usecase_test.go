@@ -103,7 +103,7 @@ func TestGetAllUsersFromRepositoryWhenNoUsersExist(t *testing.T) {
 func successMockedResults() ([]*model.User, []*dto.User) {
 	mockedRepositoryResult := []*model.User{
 		{
-			ID:        1,
+			Id:        1,
 			Name:      "Bob",
 			Age:       "30",
 			CreatedAt: time.Time{},

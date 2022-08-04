@@ -2,7 +2,7 @@ package registry
 
 import (
 	"cleanArch/pkg/datastore"
-	"cleanArch/pkg/datastore/gorm"
+	"cleanArch/pkg/datastore/memdb"
 	"cleanArch/pkg/server"
 )
 
@@ -11,7 +11,8 @@ type registry struct {
 }
 
 func NewRegistry() {
-	db := gorm.NewDB()
+	db := memdb.NewDb()
+	//db := gorm.NewDB()
 
 	defer db.Close()
 
