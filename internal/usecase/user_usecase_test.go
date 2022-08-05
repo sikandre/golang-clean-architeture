@@ -27,8 +27,8 @@ func newMockUserRepository(result []*model.User, err error) *mockUserRepository 
 	return m
 }
 
-func (m *mockUserRepository) FindAll(users []*model.User) ([]*model.User, error) {
-	arguments := m.Called(users)
+func (m *mockUserRepository) FindAll() ([]*model.User, error) {
+	arguments := m.Called()
 
 	return arguments.Get(0).([]*model.User), arguments.Error(1)
 }
