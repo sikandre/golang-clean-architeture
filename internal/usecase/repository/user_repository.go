@@ -6,7 +6,7 @@ import (
 )
 
 type UserRepository interface {
-	FindAll(users []*model.User) ([]*model.User, error)
+	FindAll() ([]*model.User, error)
 }
 
 type userRepository struct {
@@ -17,12 +17,12 @@ func NewUserRepository(db datastore.Database) UserRepository {
 	return &userRepository{db}
 }
 
-func (ur *userRepository) FindAll(u []*model.User) ([]*model.User, error) {
-	u, err := ur.db.FindAll()
+func (ur *userRepository) FindAll() ([]*model.User, error) {
+	users, err := ur.db.FindAll()
 
 	if err != nil {
 		return nil, err
 	}
 
-	return u, nil
+	return users, nil
 }
